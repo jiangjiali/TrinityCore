@@ -13,6 +13,11 @@ jobs:
     steps:
     - name: 签出源码
       uses: actions/checkout@v4
+    - name: 设置可重复使用的字符串
+      id: strings
+      shell: bash
+      run: |
+        echo "build-output-dir=${{ github.workspace }}/bin" >> "$GITHUB_OUTPUT"
     - name: 安装依赖
       run: |
         sudo apt-get update && sudo apt-get install -yq libboost-all-dev g++-11

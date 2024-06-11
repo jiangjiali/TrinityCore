@@ -1,8 +1,11 @@
 name: Windows x64
 
 on:
-  push:
-  pull_request:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'tag name'
+        required: true
 
 jobs:
   build:

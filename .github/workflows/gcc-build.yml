@@ -33,7 +33,7 @@ jobs:
     - name: 编译项目
       run: |
         cd bin
-        make -j 4 -k && make install
+        make -j 4 -k
     - name: 上传资源
       uses: actions/upload-artifact@v4
       with:

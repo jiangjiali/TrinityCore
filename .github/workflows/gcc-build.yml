@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: server-linux-64x-v${{ github.event.inputs.tag_name }}
-        path: ./bin/check_install/bin/**/*
+        path: ./check_install/bin/**/*
 
   publish:
     runs-on: ubuntu-latest

@@ -30,10 +30,11 @@ jobs:
       run: >
         cmake -S ${{ github.workspace }} -B ${{ steps.strings.outputs.build-output-dir }}
         -DWITH_WARNINGS=1 -DWITH_COREDEBUG=0 -DUSE_COREPCH=1 -DUSE_SCRIPTPCH=1 -DTOOLS=1 -DSCRIPTS=dynamic -DSERVERS=1 -DNOJEM=0
+        -DCMAKE_INSTALL_PREFIX=check_install
     - name: 编译项目
       run: |
         cd bin
-        make -j 4 -k
+        make -j 4 -k && make install
     - name: 上传资源
       uses: actions/upload-artifact@v4
       with:
